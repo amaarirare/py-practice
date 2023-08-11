@@ -1,13 +1,20 @@
 import torch
 import numpy as np
 
-t = torch.rand(3, 3)
+tensor = torch.rand(3, 3)
 
 if torch.cuda.is_available():
-    tensor = t.to('cuda')
+    tensor = tensor.to('cuda')
 
-n = t.numpy()
-t.add_(1)
+# n = t.numpy()
+# t.add_(1)
+# print(n)
+
+n = np.ones(5)
+t = torch.from_numpy(n)
+
+np.add(n, 1, out=n)
+print(t)
 print(n)
 
 # print(tensor)
