@@ -1,13 +1,17 @@
 import torch
 import numpy as np
 
-tensor = torch.rand(3, 3)
+t = torch.rand(3, 3)
 
 if torch.cuda.is_available():
-    tensor = tensor.to('cuda')
+    tensor = t.to('cuda')
 
-print(tensor)
+n = t.numpy()
+t.add_(1)
+print(n)
 
-agg = tensor.sum()
-agg_item = agg.item()
-print(agg_item, type(agg_item))
+# print(tensor)
+
+# agg = tensor.sum()
+# agg_item = agg.item()
+# print(agg_item, type(agg_item))
